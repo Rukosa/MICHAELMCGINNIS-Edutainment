@@ -24,7 +24,7 @@ struct ContentView: View {
         startPoint: .top, endPoint: .bottom)
     
     //Game numbers
-        //Numbers to be chosen based on difficulty and size of table
+        //Numbers chosen based on difficulty and size of table diffictulySIZE
     let easy3 = [1, 2]
     let easy5 = [1, 2, 5]
     let easy10 = [1, 2 ,5, 10]
@@ -99,6 +99,7 @@ struct ContentView: View {
     }
         //Asks another question
     func updateQuestion(){
+        //resets scale animation
         animationAmount = 1
         generateNums()
     }
@@ -132,7 +133,6 @@ struct ContentView: View {
                                 let displayNum = xNums[number] * xNums[yNumber]
                     
                             Button("\(displayNum)"){
-                                //goodluck bc wtf
                                 numberTapped(displayNum)
                                 animationAmount += 0.5
                             }.frame(width: 31.5, height: 31.5)
@@ -149,6 +149,7 @@ struct ContentView: View {
                     }
                 }//end of 1st foreach
             }//end of button monstrosity
+            
             Spacer()
             Text("Score: \(userScore)")
                 .font(.largeTitle)
@@ -156,6 +157,7 @@ struct ContentView: View {
         }
         .background(backgroundGradient)
         .onAppear(perform: updateQuestion)
+        //Alerts
         .alert(scoreTitle, isPresented: $showingScore){
             Button("Continue"){
                 updateQuestion()

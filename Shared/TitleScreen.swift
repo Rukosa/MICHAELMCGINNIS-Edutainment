@@ -39,10 +39,11 @@ struct TitleScreen: View {
                         Text("10 x 10").tag(10)
                     }.pickerStyle(.segmented)
                     Spacer()
+                    //Passes settings to ContentView
                     NavigationLink(destination: ContentView(difficulty: difficulty, questionAmt: questionAmt, tableSet: tableSet)){
-                    Text("Start game!")
-                            .foregroundColor(.black)
-                            .font(.largeTitle)
+                        Text("Start game!")
+                                .foregroundColor(.black)
+                                .font(.largeTitle)
                 }
                     Spacer()
             }
