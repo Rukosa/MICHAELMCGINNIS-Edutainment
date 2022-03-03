@@ -11,7 +11,7 @@ import SwiftUI
 struct MICHAELMCGINNIS_EdutainmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TitleScreen()
         }
     }
 }
