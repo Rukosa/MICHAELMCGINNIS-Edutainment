@@ -11,6 +11,9 @@ struct TitleScreen: View {
     @State private var difficulty = 2
     @State private var questionAmt = 10
     @State private var tableSet = 5
+    let backgroundGradient = LinearGradient(
+        colors: [Color.red, Color.orange, Color.yellow, Color.green, Color.blue, Color.purple],
+        startPoint: .top, endPoint: .bottom)
     var body: some View {
         NavigationView{
                 VStack{
@@ -22,7 +25,7 @@ struct TitleScreen: View {
                         Text("Hard").tag(3)
                     }.pickerStyle(.segmented)
                     
-                    Text("Question amount")
+                    Text("Question Amount")
                     Picker("Question Amount", selection: $questionAmt){
                         Text("5").tag(5)
                         Text("10").tag(10)
@@ -38,9 +41,12 @@ struct TitleScreen: View {
                     Spacer()
                     NavigationLink(destination: ContentView(difficulty: difficulty, questionAmt: questionAmt, tableSet: tableSet)){
                     Text("Start game!")
+                            .foregroundColor(.black)
+                            .font(.largeTitle)
                 }
                     Spacer()
             }
+                .background(backgroundGradient)
                 .navigationTitle("Settings")
         }
     }
